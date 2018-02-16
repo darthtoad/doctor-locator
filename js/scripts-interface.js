@@ -17,15 +17,15 @@ Search.prototype.parseDataForName = function(name) {
     // body.data.forEach(function(doctor){
     for (let i = 0; i < body.data.length; i++) {
       for (let j = 0; j < body.data[i].practices.length; j++) {
-        $("#result").append(body.data[i].practices[j].name);
-        $("#result").append(body.data[i].practices[j].accepts_new_patients);
-        $("#result").append(body.data[i].practices[j].visit_address.city);
-        $("#result").append(body.data[i].practices[j].visit_address.state);
-        $("#result").append(body.data[i].practices[j].visit_address.street);
-        $("#result").append(body.data[i].practices[j].visit_address.zip);
-        $("#result").append(body.data[i].practices[j].website);
-        body.data[i].practices[0].phones.forEach(function(phone){
-          $("#result").append(phone.number + " " + phone.type);
+        $("#result").append(body.data[i].practices[j].name + '<br>');
+        $("#result").append(body.data[i].practices[j].accepts_new_patients + '<br>');
+        $("#result").append(body.data[i].practices[j].visit_address.city + '<br>');
+        $("#result").append(body.data[i].practices[j].visit_address.state + '<br>');
+        $("#result").append(body.data[i].practices[j].visit_address.street + '<br>');
+        $("#result").append(body.data[i].practices[j].visit_address.zip + '<br>');
+        $("#result").append(body.data[i].practices[j].website + '<br>');
+        body.data[i].practices[j].phones.forEach(function(phone){
+          $("#result").append(phone.number + ": " + phone.type + '<br>');
         })
       }
 
@@ -43,10 +43,14 @@ $(document).ready(function(){
   //   event.preventDefault();
   //   let issue = $("#issue").val();
   // })
-  // $("#by-name").submit(function(event){
-  //   event.preventDefault();
-  //   let name = $("#name").val();
-  // })
-  let search = new Search("name", "Christina Peterson", "best-match", 10);
-  search.parseDataForName(search.search());
+  $("#by-name").submit(function(event){
+    event.preventDefault();
+    let name = $("#name").val();
+    let numberOfResults = parseInt($("#results-name").val());
+    let search = new Search("name", name, "best-match", numberOfResults);
+    console.log(search.search());
+    search.parseDataForName(search.search());
+  })
+  // let search = new Search("name", "Christina Peterson", "best-match", 10);
+  // search.parseDataForName(search.search());
 })

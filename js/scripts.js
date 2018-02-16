@@ -34,12 +34,13 @@ export class Search {
     //    // $('.showErrors').text(`There was an error processing your request: ${error.message}`);
     //    return `There was an error processing your request: ${error.message}`;
     //   });
+    let text = this.text;
     /*} else*/ if (this.type === "name") {
       let request = new XMLHttpRequest();
 
       let name = new Promise(function(resolve, reject) {
         let request = new XMLHttpRequest();
-        let url = `https://api.betterdoctor.com/2016-03-01/doctors?name=Joop%20Offerman&location=40.440%2C-79.995%2C20&user_location=40.440%2C-79.995&sort=best-match-asc&skip=0&limit=10&user_key=${apiKey}`;
+        let url = `https://api.betterdoctor.com/2016-03-01/doctors?name=${text}&location=40.440%2C-79.995%2C20&user_location=40.440%2C-79.995&sort=best-match-asc&skip=0&limit=10&user_key=${apiKey}`;
         console.log(url);
         request.onload = function() {
           if (this.status === 200) {
@@ -53,7 +54,7 @@ export class Search {
       });
 
       return name;
-      // 
+      //
       // name.then(function(response) {
       //   // console.log(response);
       //   let body = JSON.parse(response);
