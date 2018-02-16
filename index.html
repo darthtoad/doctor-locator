@@ -18,6 +18,14 @@
       <form id="by-issue">
         <label for="issue">What symptoms do you have?</label>
         <input name="issue" id="issue" type="text">
+        <label for="results-issue">How many results would you like?</label>
+        <input name="results-issue" id="results-issue" type="number" value="10">
+        <label for="sort-by">How would you like your results?</label>
+        <select id="sort-by">
+          <option value="best-match-asc">Best Match</option>
+          <option value="last-name-asc">Name</option>
+          <option value="rating-asc">Rating</option>
+        </select>
         <button type="submit">Submit</button>
       </form>
       <h3>Search by Doctor's Name</h3>
