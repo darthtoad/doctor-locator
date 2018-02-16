@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -11,6 +10,24 @@
   </head>
   <body>
     <div class="container-fluid">
+      <div class="jumbotron">
+        <h1>Doctor Locator</h1>
+        <h2>An app for locating doctors</h2>
+      </div>
+      <h3>Search by symptoms</h3>
+      <form id="by-issue">
+        <label for="issue">What symptoms do you have?</label>
+        <input name="issue" id="issue" type="text">
+        <button type="submit">Submit</button>
+      </form>
+      <h3>Search by Doctor's Name</h3>
+      <form id="by-name">
+        <label for="name">What is the name of the doctor you're looking for?</label>
+        <input name="name" id="name" type="text">
+        <button type="submit">Submit</button>
+      </form>
+      <div id="result">
+      </div>
     </div>
   </body>
 </html>
