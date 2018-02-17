@@ -1,3 +1,29 @@
-h1 {
+.jumbotron h1 {
   color: blue;
+}
+
+#by-issue {
+  border: 5px outset green;
+  background-color: lightgrey;
+  padding: 5px 5px 5px 5px;
+}
+
+#by-name {
+  border: 5px outset red;
+  background-color: skyblue;
+  padding: 5px 5px 5px 5px;
+}
+
+.result-body {
+  border: 2px outset black;
+  background-color: grey;
+}
+
+.container-fluid {
+  padding: 10px;
+}
+
+body {
+  background: url(/../img/bg.jpg) no-repeat center center fixed;
+  background-size: cover;
 }
