@@ -7,7 +7,7 @@ Search.prototype.parseDataForIssue = function(issue) {
       let profile = body.data[i].profile;
       $("#result").append(`<hr><h3>Name: ${profile.first_name} ${profile.last_name}</h3>`)
       for (let j = 0; j < body.data[i].practices.length; j++) {
-        $("#result").append(`<br>Accepting new patients: ${body.data[i].practices[j].accepts_new_patients}<br>${body.data[i].practices[j].visit_address.street}<br>${body.data[i].practices[j].visit_address.city}, ${body.data[i].practices[j].visit_address.state} ${body.data[i].practices[j].visit_address.zip}<br>`);
+        $("#result").append(`<br><h5>Practice: ${body.data[i].practices[j].name}</h5><br>Accepting new patients: ${body.data[i].practices[j].accepts_new_patients}<br>${body.data[i].practices[j].visit_address.street}<br>${body.data[i].practices[j].visit_address.city}, ${body.data[i].practices[j].visit_address.state} ${body.data[i].practices[j].visit_address.zip}<br>`);
         if (body.data[i].practices[j].website) {
           $("#result").append(`Website: <a href="${body.data[i].practices[j].website}">Click Here</a><br>`);
         }
@@ -29,7 +29,7 @@ Search.prototype.parseDataForName = function(name) {
       let profile = body.data[i].profile;
       $("#result").append(`<hr><h3>Name: ${profile.first_name} ${profile.last_name}</h3>`)
       for (let j = 0; j < body.data[i].practices.length; j++) {
-        $("#result").append(`<br>Accepting new patients: ${body.data[i].practices[j].accepts_new_patients}<br>${body.data[i].practices[j].visit_address.street}<br>${body.data[i].practices[j].visit_address.city}, ${body.data[i].practices[j].visit_address.state} ${body.data[i].practices[j].visit_address.zip}<br>`);
+        $("#result").append(`<br><h5>Practice: ${body.data[i].practices[j].name}</h5><br>Accepting new patients: ${body.data[i].practices[j].accepts_new_patients}<br>${body.data[i].practices[j].visit_address.street}<br>${body.data[i].practices[j].visit_address.city}, ${body.data[i].practices[j].visit_address.state} ${body.data[i].practices[j].visit_address.zip}<br>`);
         if (body.data[i].practices[j].website) {
           $("#result").append(`Website: <a href="${body.data[i].practices[j].website}">Click Here</a><br>`);
         }
