@@ -50,36 +50,18 @@ Search.prototype.parseDataForName = function(name) {
 }
 
 $(document).ready(function(){
-  function getLocation() {
-    let location = new Promise(function(resolve, reject) {
-      let request = new XMLHttpRequest();
 
-      let url = `http://ip-api.com/json`;
-      request.onload = function() {
-        if (this.status === 200) {
-          resolve(request.response);
-        } else {
-          reject(Error(request.statusText));
-        }
-      }
-      request.open("GET", url, true);
-      request.send();
-      //
-      // location.then(function(response){
-      //   return response;
-      // })
-    });
-    return location
-  }
-  getLocation().then(function(location){
-    console.log(location);
-  }));
+  // getLocation().then(function(location){
+  //   console.log(location);
+  // }));
   $("#by-name").submit(function(event){
     $("#result").empty();
     event.preventDefault();
     let name = $("#name").val();
     let numberOfResults = parseInt($("#results-name").val());
-    let search = new Search("name", name, "best-match", numberOfResults);
+    let state = $("#state-name").val().toLowerCase();
+    let city = $("#city-name").val().toLowerCase();
+    let search = new Search("name", name, "best-match", numberOfResults, city, state);
     if ($.isEmptyObject(search)) {
       $("#result").append("Sorry, your search yielded no results. Try rephrasing your request.")
     } else {
@@ -93,7 +75,9 @@ $(document).ready(function(){
     let issue = $("#issue").val();
     let numberOfResults = parseInt($("#results-issue").val());
     let sortBy = $("#sort-by option:selected").val();
-    let search = new Search("issue", issue, sortBy, numberOfResults);
+    let state = $("#state-issue").val().toLowerCase();
+    let city = $("#city-issue").val().toLowerCase();
+    let search = new Search("issue", issue, sortBy, numberOfResults, city, state);
     search.parseDataForIssue(search.search())
   })
 })
