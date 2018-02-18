@@ -50,6 +50,30 @@ Search.prototype.parseDataForName = function(name) {
 }
 
 $(document).ready(function(){
+  function getLocation() {
+    let location = new Promise(function(resolve, reject) {
+      let request = new XMLHttpRequest();
+
+      let url = `http://ip-api.com/json`;
+      request.onload = function() {
+        if (this.status === 200) {
+          resolve(request.response);
+        } else {
+          reject(Error(request.statusText));
+        }
+      }
+      request.open("GET", url, true);
+      request.send();
+      //
+      // location.then(function(response){
+      //   return response;
+      // })
+    });
+    return location
+  }
+  getLocation().then(function(location){
+    console.log(location);
+  }));
   $("#by-name").submit(function(event){
     $("#result").empty();
     event.preventDefault();
