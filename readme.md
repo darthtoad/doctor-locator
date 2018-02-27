@@ -31,6 +31,8 @@ _This app allows a user to search for doctors in the Portland area by name or by
 
 * Click on the following [link](https://github.com/darthtoad/doctor-locator) to download the Doctor Locator
 * Go to the directory you downloaded the Doctor Locator to in the terminal
+* Get a developer account and create an API key at [link](https://developer.betterdoctor.com/)
+* Create an .env file at the top level of the project directory. In your file, write: exports.apiKey = "YOUR API KEY"; (e.g, exports.apiKey = "d44joSoI4if23jPWa34foji34f439g0Sbf9i034";)
 * Run npm install in the terminal
 * Run bower install in the terminal
 * Run gulp build in the terminal

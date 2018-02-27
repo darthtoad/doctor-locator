@@ -10,59 +10,13 @@ export class Search {
     this.state = state;
   }
 
-  // getLocation() {
-  //   let locationPromise = new Promise(function(resolve, reject) {
-  //     let request = new XMLHttpRequest();
-  //
-  //     let url = `http://ip-api.com/json`;
-  //     request.onload = function() {
-  //       if (this.status === 200) {
-  //         resolve(request.response);
-  //       } else {
-  //         reject(Error(request.statusText));
-  //       }
-  //     }
-  //     request.open("GET", url, true);
-  //     request.send();
-  //     //
-  //     // location.then(function(response){
-  //     //   return response;
-  //     // })
-  //   });
-  //   return locationPromise;
-  //
-  // }
-
-
-
   search() {
-
-
-
-    //
-    // function superPrecision(value) {
-    //   if (Math.abs(value) < 10) {
-    //     return Number.value.toPrecision(4);
-    //   } else if (Math.abs(value) < 100) {
-    //     return Number.value.toPrecision(5);
-    //   } else {
-    //     return Number.value.toPrecision(6);
-    //   }
-    // }
-    //
-
-
-    // currentLongitude = superPrecision(currentLongitude);
-    //
-    // currentLatitude = superPrecision(currentLatitude);
-
     let text = this.text;
     let limit = this.limit;
     let sort = this.sort;
     let state = this.state;
     let city = this.city.replace(/\s/g, "-");
     if (this.type === "name") {
-      let request = new XMLHttpRequest();
 
       let name = new Promise(function(resolve, reject) {
         let request = new XMLHttpRequest();
@@ -78,10 +32,9 @@ export class Search {
         request.open("GET", url, true);
         request.send();
       });
-
       return name;
+
     } else if (this.type === "issue") {
-      let request = new XMLHttpRequest();
 
       let issue = new Promise(function(resolve, reject) {
         let request = new XMLHttpRequest();
@@ -96,8 +49,8 @@ export class Search {
         request.open("GET", url, true);
         request.send();
       });
-
       return issue;
+
     } else {
       return 'Something has gone horribly wrong!';
     }

@@ -51,9 +51,6 @@ Search.prototype.parseDataForName = function(name) {
 
 $(document).ready(function(){
 
-  // getLocation().then(function(location){
-  //   console.log(location);
-  // }));
   $("#by-name").submit(function(event){
     $("#result").empty();
     event.preventDefault();
